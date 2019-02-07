@@ -1,10 +1,8 @@
 package com.fox.bookmanager.activity;
 
 import android.os.Bundle;
-import android.view.View;
 
 import com.fox.bookmanager.R;
-import com.fox.bookmanager.activity.ui.login.LoginActivity;
 import com.fox.bookmanager.base.BaseActivity;
 
 import java.util.Timer;
