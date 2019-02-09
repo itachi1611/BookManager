@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="0,1"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activity.MenuActivity"
+    tools:showIn="@layout/activity_menu">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvProfile"
+            android:layout_margin="8dp"
+            android:drawableTop="@drawable/ic_launcher_background"
+            android:gravity="center"
+            android:text="@string/user" />
+
+        <TextView
+            android:id="@+id/tvBook"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:drawableTop="@drawable/ic_launcher_background"
+            android:text="@string/book"/>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvCategory"
+            android:layout_margin="8dp"
+            android:drawableTop="@drawable/ic_launcher_background"
+            android:gravity="center"
+            android:text="@string/category" />
+
+        <TextView
+            android:id="@+id/tvInvoice"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:drawableTop="@drawable/ic_launcher_background"
+            android:text="@string/invoice"/>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvBestSell"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:drawableTop="@drawable/ic_launcher_background"
+            android:text="@string/best_selling"/>
+
+        <TextView
+            android:id="@+id/tvStatistical"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:drawableTop="@drawable/ic_launcher_background"
+            android:text="@string/statistical"/>
+
+    </TableRow>
+
+</TableLayout>
