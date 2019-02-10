@@ -2,18 +2,12 @@
     <string name="app_name">DemoProject</string>
 
     <!-- LoginActivity -->
-    <string name="remem_pass">Remember my password</string>
-    <string name="recover_pass">Forgot password ?</string>
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
     <string name="title_activity_login">Sign in</string>
+    <string name="action_auto_login">Remember my password</string>
+    <string name="recover_pass">Forgot password ?</string>
+    <string name="prompt_user_login">Username</string>
+    <string name="prompt_password_login">Password (optional)</string>
+    <string name="action_sign_in">Sign in</string>
     <string name="tv_register">Create new account</string>
 
 
@@ -29,7 +23,10 @@
     <!--RegisterActivity-->
     <string name="title_activity_register">Sign up</string>
     <string name="action_sign_up">Sign up</string>
-    <string name="action_back_signin">Already have account ?</string>
+    <string name="action_back_login">Already have account ?</string>
+    <string name="prompt_user_sign_up">Username</string>
+    <string name="prompt_email_sign_up">Username</string>
+    <string name="prompt_password_sign_up">Password</string>
 
     <!--InvoiceActivity-->
     <string name="title_activity_invoice">InvoiceActivity</string>
@@ -37,6 +34,11 @@
     <string name="btn_invoice_date">Pick date</string>
     <string name="btn_invoice_add">Add</string>
     <string name="notify_wrong_text">Input less than 7 characters</string>
+    <string name="title_activity_user">UserActivity</string>
+    <string name="title_activity_book">BookActivity</string>
+    <string name="title_activity_category">CategoryActivity</string>
+    <string name="title_activity_best_sell">BestSellActivity</string>
+    <string name="title_activity_statistical">StatisticalActivity</string>
 
 
 </resources>

@@ -10,9 +10,63 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".activity.StatisticalActivity"
+            android:label="@string/title_activity_statistical"
+            android:parentActivityName=".activity.MenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fox.bookmanager.activity.MenuActivity" />
+        </activity>
+        <activity
+            android:name=".activity.BestSellActivity"
+            android:label="@string/title_activity_best_sell"
+            android:parentActivityName=".activity.MenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fox.bookmanager.activity.MenuActivity" />
+        </activity>
+        <activity
+            android:name=".activity.InvoiceActivity"
+            android:label="@string/title_activity_invoice"
+            android:parentActivityName=".activity.MenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fox.bookmanager.activity.MenuActivity" />
+        </activity>
+        <activity
+            android:name=".activity.CategoryActivity"
+            android:label="@string/title_activity_category"
+            android:parentActivityName=".activity.MenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fox.bookmanager.activity.MenuActivity" />
+        </activity>
+        <activity
+            android:name=".activity.BookActivity"
+            android:label="@string/title_activity_book"
+            android:parentActivityName=".activity.MenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fox.bookmanager.activity.MenuActivity" />
+        </activity>
+        <activity
+            android:name=".activity.UserActivity"
+            android:label="@string/title_activity_user"
+            android:parentActivityName=".activity.MenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fox.bookmanager.activity.MenuActivity" />
+        </activity>
+        <activity
             android:name=".activity.MenuActivity"
             android:label="@string/title_activity_menu"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.RegisterActivity"
             android:label="@string/title_activity_register" />
