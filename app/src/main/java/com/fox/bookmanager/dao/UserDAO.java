@@ -21,9 +21,8 @@ public class UserDAO {
 
     private DBHelper dbHelper;
 
-
-    public UserDAO(Context context) {
-        this.dbHelper = new DBHelper(context);
+    public UserDAO(DBHelper dbHelper) {
+        this.dbHelper = dbHelper;
     }
 
     public long insertUser(User user){
@@ -37,7 +36,7 @@ public class UserDAO {
         cv.put(USER_FULL_NAME,user.USER_FULL_NAME);
 
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
-        result = sqLiteDatabase.update(USER_TABLE,cv,USER_USER_NAME + " = ?",new String[]{user.USER_USER_NAME});
+        result = sqLiteDatabase.insert(USER_TABLE,null,cv);
         sqLiteDatabase.close();
 
         return result;

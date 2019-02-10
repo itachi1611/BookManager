@@ -20,7 +20,6 @@ import com.fox.bookmanager.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class UserActivity extends BaseActivity {
 
@@ -32,6 +31,8 @@ public class UserActivity extends BaseActivity {
     private LinearLayoutManager linearLayoutManager;
     private List<User> users;
 
+    private FloatingActionButton fab;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,31 +41,40 @@ public class UserActivity extends BaseActivity {
         setSupportActionBar(toolbar);
         initViews();
 
-        User user = new User("admin","admin","","admin");
-        userDAO.insertUser(user);
+        User user = new User("admin","admin","123","admin");
+        long a = userDAO.insertUser(user);
+        Log.i("a",a + "");
 
-        users = userDAO.getAllUser();
+        addRecycleView();
 
-        lvList.setLayoutManager(linearLayoutManager);
-        lvList.setAdapter(userAdapter);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                startNewActivity(AddUserActivity.class);
+                finish();
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void initViews(){
+        users = new ArrayList<>();
+        users.clear();
         dbHelper = new DBHelper(UserActivity.this);
-        userDAO = new UserDAO(UserActivity.this);
+        userDAO = new UserDAO(dbHelper);
         lvList = findViewById(R.id.lvList);
-        userAdapter = new UserAdapter(this,users);
         linearLayoutManager = new LinearLayoutManager(this);
+        fab = findViewById(R.id.fab);
+    }
+
+    private void addRecycleView(){
+        users = userDAO.getAllUser();
+        userAdapter = new UserAdapter(this,users);
+
+        lvList.setLayoutManager(linearLayoutManager);
+        lvList.setHasFixedSize(true);
+        lvList.setAdapter(userAdapter);
     }
 
 }

@@ -2,14 +2,13 @@ package com.fox.bookmanager.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.fox.bookmanager.R;
+import com.fox.bookmanager.base.BaseActivity;
 
-public class BookActivity extends AppCompatActivity {
+public class BookActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +21,8 @@ public class BookActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                startNewActivity(AddBookActivity.class);
+                finish();
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

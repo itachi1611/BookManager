@@ -10,6 +10,33 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".activity.AddCategoryActivity"
+            android:label="@string/title_activity_add_category"
+            android:parentActivityName=".activity.CategoryActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fox.bookmanager.activity.CategoryActivity" />
+        </activity>
+        <activity
+            android:name=".activity.AddUserActivity"
+            android:label="@string/title_activity_add_user"
+            android:parentActivityName=".activity.UserActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fox.bookmanager.activity.UserActivity" />
+        </activity>
+        <activity
+            android:name=".activity.AddBookActivity"
+            android:label="@string/title_activity_add_book"
+            android:parentActivityName=".activity.BookActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fox.bookmanager.activity.BookActivity" />
+        </activity>
+        <activity
             android:name=".activity.StatisticalActivity"
             android:label="@string/title_activity_statistical"
             android:parentActivityName=".activity.MenuActivity"

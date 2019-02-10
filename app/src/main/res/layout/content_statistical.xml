@@ -8,4 +8,23 @@
     tools:context=".activity.StatisticalActivity"
     tools:showIn="@layout/activity_statistical">
 
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tbLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/colorPrimary"
+        app:tabSelectedTextColor="@color/colorPrimaryDark">
+    </android.support.design.widget.TabLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="@+id/tbLayout">
+    </android.support.v4.view.ViewPager>
+
 </android.support.constraint.ConstraintLayout>

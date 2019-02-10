@@ -48,5 +48,9 @@
 
     <!--StatisticalActivity-->
     <string name="title_activity_statistical">Statistical</string>
+    <string name="title_activity_add_book">Add new Book</string>
+    <string name="title_activity_add_user">AddUserActivity</string>
+    <string name="title_activity_add_category">AddCategoryActivity</string>
+    <string name="sample">This is stat samples</string>
 
 </resources>
