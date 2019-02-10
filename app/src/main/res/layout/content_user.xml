@@ -8,5 +8,12 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".activity.UserActivity"
     tools:showIn="@layout/activity_user">
+    
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/lvList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
 
 </android.support.constraint.ConstraintLayout>

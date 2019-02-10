@@ -25,12 +25,7 @@ public class MenuActivity extends BaseActivity implements View.OnClickListener {
     private TextView tvBestSell;
     private TextView tvStatistical;
 
-    private DBHelper dbHelper;
 
-    private RecyclerView lvList;
-    private UserAdapter userAdapter;
-    private LinearLayoutManager linearLayoutManager;
-    private List<User> users;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

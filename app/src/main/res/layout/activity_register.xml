@@ -55,39 +55,61 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle">
 
-        <EditText
-            android:id="@+id/edtUsername"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
-            android:hint="@string/prompt_user_sign_up"
-            android:inputType="text"
-            android:selectAllOnFocus="true" />
+            app:counterEnabled="true">
+
+            <EditText
+                android:id="@+id/edtUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/prompt_user_sign_up"
+                android:inputType="text"
+                android:selectAllOnFocus="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            app:counterEnabled="true">
 
         <EditText
             android:id="@+id/edtEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="24dp"
             android:hint="@string/prompt_email_sign_up"
             android:inputType="textEmailAddress"
             android:selectAllOnFocus="true" />
 
-        <EditText
-            android:id="@+id/edtPass"
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
-            android:hint="@string/prompt_password_sign_up"
-            android:imeOptions="actionDone"
-            android:inputType="textPassword"
-            android:selectAllOnFocus="true" />
+            app:counterEnabled="true">
+
+            <EditText
+                android:id="@+id/edtPass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/prompt_password_sign_up"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:selectAllOnFocus="true" />
+
+        </android.support.design.widget.TextInputLayout>
 
         <Button
             android:id="@+id/btnLogin"

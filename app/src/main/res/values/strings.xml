@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DemoProject</string>
+    <string name="app_name">BookManager</string>
 
     <!-- LoginActivity -->
     <string name="title_activity_login">Sign in</string>
@@ -29,16 +29,24 @@
     <string name="prompt_password_sign_up">Password</string>
 
     <!--InvoiceActivity-->
-    <string name="title_activity_invoice">InvoiceActivity</string>
+    <string name="title_activity_invoice">Invoice</string>
     <string name="edt_invoice_id">invoice id</string>
     <string name="btn_invoice_date">Pick date</string>
     <string name="btn_invoice_add">Add</string>
-    <string name="notify_wrong_text">Input less than 7 characters</string>
-    <string name="title_activity_user">UserActivity</string>
-    <string name="title_activity_book">BookActivity</string>
-    <string name="title_activity_category">CategoryActivity</string>
-    <string name="title_activity_best_sell">BestSellActivity</string>
-    <string name="title_activity_statistical">StatisticalActivity</string>
 
+    <!--UserActivity-->
+    <string name="title_activity_user">User</string>
+
+    <!--BookActivity-->
+    <string name="title_activity_book">Book</string>
+
+    <!--CategoryActivity-->
+    <string name="title_activity_category">Category</string>
+
+    <!--BestSellActivity-->
+    <string name="title_activity_best_sell">Best Sell</string>
+
+    <!--StatisticalActivity-->
+    <string name="title_activity_statistical">Statistical</string>
 
 </resources>
