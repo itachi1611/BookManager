@@ -1,94 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--<android.support.v4.widget.DrawerLayout android:layout_width="wrap_content"-->
-    <!--android:layout_height="match_parent"-->
-    <!--xmlns:android="http://schemas.android.com/apk/res/android">-->
 
-    <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent">-->
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="48dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:paddingTop="32dp"
+    android:paddingBottom="32dp"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:stretchColumns="0,1"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activity.MenuActivity"
+    tools:showIn="@layout/activity_menu">
 
-        <!--<include layout="@layout/menu_toolbar"/>-->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
 
-        <TableLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:stretchColumns="0,1"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            tools:context=".activity.MenuActivity"
-            tools:showIn="@layout/activity_menu">
+        <TextView
+            android:id="@+id/tvProfile"
+            android:layout_margin="8dp"
+            android:drawableTop="@drawable/admin"
+            android:gravity="center"
+            android:text="@string/user" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvBook"
+            android:layout_margin="8dp"
+            android:drawableTop="@drawable/book_icon"
+            android:gravity="center"
+            android:text="@string/book" />
 
-                <TextView
-                    android:id="@+id/tvProfile"
-                    android:layout_margin="8dp"
-                    android:drawableTop="@drawable/admin"
-                    android:gravity="center"
-                    android:text="@string/user" />
+    </TableRow>
 
-                <TextView
-                    android:id="@+id/tvBook"
-                    android:layout_margin="8dp"
-                    android:gravity="center"
-                    android:drawableTop="@drawable/book_icon"
-                    android:text="@string/book"/>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
 
-            </TableRow>
+        <TextView
+            android:id="@+id/tvCategory"
+            android:layout_margin="8dp"
+            android:drawableTop="@drawable/category_icon"
+            android:gravity="center"
+            android:text="@string/category" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvInvoice"
+            android:layout_margin="8dp"
+            android:drawableTop="@drawable/invoice_icon"
+            android:gravity="center"
+            android:text="@string/invoice" />
 
-                <TextView
-                    android:id="@+id/tvCategory"
-                    android:layout_margin="8dp"
-                    android:drawableTop="@drawable/category_icon"
-                    android:gravity="center"
-                    android:text="@string/category" />
+    </TableRow>
 
-                <TextView
-                    android:id="@+id/tvInvoice"
-                    android:layout_margin="8dp"
-                    android:gravity="center"
-                    android:drawableTop="@drawable/invoice_icon"
-                    android:text="@string/invoice"/>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-            </TableRow>
+        <TextView
+            android:id="@+id/tvBestSell"
+            android:layout_margin="8dp"
+            android:drawableTop="@drawable/best_selling_icon"
+            android:gravity="center"
+            android:text="@string/best_selling" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvStatistical"
+            android:layout_margin="8dp"
+            android:drawableTop="@drawable/statistical_icon"
+            android:gravity="center"
+            android:text="@string/statistical" />
 
-                <TextView
-                    android:id="@+id/tvBestSell"
-                    android:layout_margin="8dp"
-                    android:gravity="center"
-                    android:drawableTop="@drawable/best_sell_icon"
-                    android:text="@string/best_selling"/>
+    </TableRow>
 
-                <TextView
-                    android:id="@+id/tvStatistical"
-                    android:layout_margin="8dp"
-                    android:gravity="center"
-                    android:drawableTop="@drawable/statitiscal_icon"
-                    android:text="@string/statistical"/>
+</TableLayout>
 
-            </TableRow>
-
-        </TableLayout>
-
-    <!--</LinearLayout>-->
-    <!---->
-    <!--<android.support.design.widget.NavigationView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_gravity="start">-->
-
-    <!--</android.support.design.widget.NavigationView>-->
-
-<!--</android.support.v4.widget.DrawerLayout>-->
