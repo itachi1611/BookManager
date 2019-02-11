@@ -70,7 +70,7 @@ public class MenuActivity extends BaseActivity implements View.OnClickListener {
                 startNewActivity(InvoiceActivity.class);
                 break;
             case R.id.tvBestSell:
-                startNewActivity(BestSellActivity.class);
+                startNewActivity(TestActivity.class);
                 break;
             case R.id.tvStatistical:
                 startNewActivity(StatisticalActivity.class);

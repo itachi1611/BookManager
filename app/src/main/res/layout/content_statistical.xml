@@ -7,7 +7,10 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".activity.StatisticalActivity"
     tools:showIn="@layout/activity_statistical">
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
     <android.support.design.widget.TabLayout
         android:id="@+id/tbLayout"
         android:layout_width="match_parent"
@@ -24,7 +27,9 @@
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="@+id/tbLayout">
-    </android.support.v4.view.ViewPager>
+        app:layout_constraintBottom_toBottomOf="@+id/tbLayout"
+        tools:layout_editor_absoluteX="0dp"></android.support.v4.view.ViewPager>
+</LinearLayout>
+
 
 </android.support.constraint.ConstraintLayout>
