@@ -21,8 +21,8 @@ public class UserDAO {
 
     private DBHelper dbHelper;
 
-    public UserDAO(DBHelper dbHelper) {
-        this.dbHelper = dbHelper;
+    public UserDAO(Context context) {
+        this.dbHelper = new DBHelper(context);
     }
 
     public long insertUser(User user){

@@ -25,14 +25,18 @@
     <string name="action_sign_up">Sign up</string>
     <string name="action_back_login">Already have account ?</string>
     <string name="prompt_user_sign_up">Username</string>
-    <string name="prompt_email_sign_up">Username</string>
+    <string name="prompt_email_sign_up">Email</string>
     <string name="prompt_password_sign_up">Password</string>
 
     <!--InvoiceActivity-->
     <string name="title_activity_invoice">Invoice</string>
-    <string name="edt_invoice_id">invoice id</string>
+    <string name="edt_invoice_id">Invoice id</string>
     <string name="btn_invoice_date">Pick date</string>
     <string name="btn_invoice_add">Add</string>
+    <string name="notify_wrong_text">Input less than 7 characters</string>
+    <string name="notify_choose_input">You must pick the datetime</string>
+    <string name="notify_input_successful">Add successful</string>
+    <string name="notify_error">Error</string>
 
     <!--UserActivity-->
     <string name="title_activity_user">User</string>
@@ -48,9 +52,17 @@
 
     <!--StatisticalActivity-->
     <string name="title_activity_statistical">Statistical</string>
+
+    <!--AddBookActivity-->
     <string name="title_activity_add_book">Add new Book</string>
+
+    <!--AddUserActivity-->
     <string name="title_activity_add_user">AddUserActivity</string>
+
+    <!--AddCategoryActivity-->
     <string name="title_activity_add_category">AddCategoryActivity</string>
+
+    <!--Sample-->
     <string name="sample">This is stat samples</string>
 
 </resources>

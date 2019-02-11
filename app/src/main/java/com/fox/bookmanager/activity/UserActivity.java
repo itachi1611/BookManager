@@ -1,10 +1,7 @@
 package com.fox.bookmanager.activity;
 
-import android.os.BaseBundle;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -15,7 +12,6 @@ import com.fox.bookmanager.R;
 import com.fox.bookmanager.adapter.UserAdapter;
 import com.fox.bookmanager.base.BaseActivity;
 import com.fox.bookmanager.dao.UserDAO;
-import com.fox.bookmanager.database.DBHelper;
 import com.fox.bookmanager.model.User;
 
 import java.util.ArrayList;
@@ -23,7 +19,6 @@ import java.util.List;
 
 public class UserActivity extends BaseActivity {
 
-    private DBHelper dbHelper;
     private UserDAO userDAO;
 
     private RecyclerView lvList;
@@ -61,8 +56,7 @@ public class UserActivity extends BaseActivity {
     private void initViews(){
         users = new ArrayList<>();
         users.clear();
-        dbHelper = new DBHelper(UserActivity.this);
-        userDAO = new UserDAO(dbHelper);
+        userDAO = new UserDAO(UserActivity.this);
         lvList = findViewById(R.id.lvList);
         linearLayoutManager = new LinearLayoutManager(this);
         fab = findViewById(R.id.fab);
