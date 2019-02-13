@@ -30,4 +30,27 @@ public class Constants {
             "" + INVOICE_ID + " NCHAR(7) PRIMARY KEY," +
             "" + INVOICE_DATE + " DATE)";
 
+    //Book Table
+    public static final String BOOK_TABLE = "book";
+    //Column
+    public static final String BOOK_ID = "b_id";
+    public static final String BOOK_TYPE_ID = "cat_id";
+    public static final String BOOK_NAME = "b_name";
+    public static final String BOOK_AUTHOR = "author";
+    public static final String BOOK_PRODUCER = "producer";
+    public static final String BOOK_PRICE = "price";
+    public static final String BOOK_QUANTITY = "quantity";
+
+    //Query create book(b_id nchar(5) primary key not null,cat_id nchar(50),b_name nvarchar(50),author nvarchar(50),producer nvarchar(50),price float,quantity int)
+
+    public static final String CREATE_BOOK_TABLE = "CREATE TABLE " + BOOK_TABLE + "(" +
+            "" + BOOK_ID + " NCHAR(5)," +
+            "" + BOOK_TYPE_ID + " NCHAR(50)," +
+            "" + BOOK_NAME + " NVARCHAR(50)," +
+            "" + BOOK_AUTHOR + " NVARCHAR(50)," +
+            "" + BOOK_PRODUCER + " NVARCHAR(50)," +
+            "" + BOOK_PRICE + " FLOAT," +
+            "" + BOOK_QUANTITY + " INT" +
+            ")";
+
 }

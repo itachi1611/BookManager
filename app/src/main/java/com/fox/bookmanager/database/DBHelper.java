@@ -8,8 +8,11 @@ import android.util.Log;
 
 import com.fox.bookmanager.Constants;
 
+import static com.fox.bookmanager.Constants.BOOK_TABLE;
+import static com.fox.bookmanager.Constants.CREATE_BOOK_TABLE;
 import static com.fox.bookmanager.Constants.CREATE_INVOICE_TABLE;
 import static com.fox.bookmanager.Constants.CREATE_USER_TABLE;
+import static com.fox.bookmanager.Constants.INVOICE_TABLE;
 import static com.fox.bookmanager.Constants.USER_TABLE;
 
 public class DBHelper extends SQLiteOpenHelper {
@@ -18,16 +21,20 @@ public class DBHelper extends SQLiteOpenHelper {
         super(context, "book_manager.sql", null, 1);
         if(Constants.isDEBUG) Log.i("CREATE_USER_TABLE",CREATE_USER_TABLE);
         if(Constants.isDEBUG) Log.i("CREATE_INVOICE_TABLE",CREATE_INVOICE_TABLE);
+        if(Constants.isDEBUG) Log.i("CREATE_INVOICE_TABLE",CREATE_BOOK_TABLE);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_USER_TABLE);
         db.execSQL(CREATE_INVOICE_TABLE);
+        db.execSQL(CREATE_BOOK_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + USER_TABLE);
+        db.execSQL("DROP TABLE IF EXISTS " + INVOICE_TABLE);
+        db.execSQL("DROP TABLE IF EXISTS " + BOOK_TABLE);
     }
 }
