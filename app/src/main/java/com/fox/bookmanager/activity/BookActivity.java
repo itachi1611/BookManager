@@ -13,6 +13,7 @@ import com.fox.bookmanager.base.BaseActivity;
 import com.fox.bookmanager.dao.BookDAO;
 import com.fox.bookmanager.model.Book;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -57,8 +58,12 @@ public class BookActivity extends BaseActivity {
     }
 
     private void initViews(){
+        books = new ArrayList<>();
+        books.clear();
+        bookDAO = new BookDAO(BookActivity.this);
         lvList = findViewById(R.id.lvList);
-        FloatingActionButton fab = findViewById(R.id.fab);
+        linearLayoutManager = new LinearLayoutManager(BookActivity.this);
+        fab = findViewById(R.id.fab);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
