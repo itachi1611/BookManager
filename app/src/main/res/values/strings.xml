@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BookManager</string>
+    <string name="app_name">Book Manager</string>
 
     <!-- LoginActivity -->
     <string name="title_activity_login">Sign in</string>

@@ -10,10 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.TestActivity"
-            android:label="@string/title_activity_test"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
             android:name=".activity.AddCategoryActivity"
             android:label="@string/title_activity_add_category"
             android:parentActivityName=".activity.CategoryActivity"
