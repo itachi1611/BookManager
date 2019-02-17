@@ -9,7 +9,9 @@ import android.util.Log;
 import com.fox.bookmanager.Constants;
 
 import static com.fox.bookmanager.Constants.BOOK_TABLE;
+import static com.fox.bookmanager.Constants.CATEGORY_TABLE;
 import static com.fox.bookmanager.Constants.CREATE_BOOK_TABLE;
+import static com.fox.bookmanager.Constants.CREATE_CATEGORY_TABLE;
 import static com.fox.bookmanager.Constants.CREATE_INVOICE_TABLE;
 import static com.fox.bookmanager.Constants.CREATE_USER_TABLE;
 import static com.fox.bookmanager.Constants.INVOICE_TABLE;
@@ -22,6 +24,7 @@ public class DBHelper extends SQLiteOpenHelper {
         if(Constants.isDEBUG) Log.i("CREATE_USER_TABLE",CREATE_USER_TABLE);
         if(Constants.isDEBUG) Log.i("CREATE_INVOICE_TABLE",CREATE_INVOICE_TABLE);
         if(Constants.isDEBUG) Log.i("CREATE_INVOICE_TABLE",CREATE_BOOK_TABLE);
+        if(Constants.isDEBUG) Log.i("CREATE_INVOICE_TABLE",CREATE_CATEGORY_TABLE);
     }
 
     @Override
@@ -29,6 +32,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_USER_TABLE);
         db.execSQL(CREATE_INVOICE_TABLE);
         db.execSQL(CREATE_BOOK_TABLE);
+        db.execSQL(CREATE_CATEGORY_TABLE);
     }
 
     @Override
@@ -36,5 +40,6 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + USER_TABLE);
         db.execSQL("DROP TABLE IF EXISTS " + INVOICE_TABLE);
         db.execSQL("DROP TABLE IF EXISTS " + BOOK_TABLE);
+        db.execSQL("DROP TABLE IF EXISTS " + CATEGORY_TABLE);
     }
 }

@@ -16,7 +16,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/book_icon" />
+            app:srcCompat="@drawable/category_icon" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -27,13 +27,13 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/tvBookName"
+                android:id="@+id/tvCatId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"/>
 
             <TextView
-                android:id="@+id/tvBookQuantity"
+                android:id="@+id/tvCatName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"/>

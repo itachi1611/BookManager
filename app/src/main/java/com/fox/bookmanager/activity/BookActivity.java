@@ -36,8 +36,8 @@ public class BookActivity extends BaseActivity {
         initViews();
         for (int i = 0; i < 10; i++) {
             Book book = new Book();
-            book.ID ="s "+i;
-            book.CAT_ID = "tyle"+i;
+            book.ID ="s " + i;
+            book.CAT_ID = "type" + i;
             book.NAME = "abc";
             book.AUTHOR = "123456";
             book.PRODUCER = "12d3456";
@@ -54,7 +54,8 @@ public class BookActivity extends BaseActivity {
                 finish();
             }
         });
-
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
     }
 
     private void initViews(){
