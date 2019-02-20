@@ -58,19 +58,21 @@
     <string name="title_activity_add_book">Add new Book</string>
     <string name="edt_input_book_id">Book code</string>
     <string name="edt_input_book_name">Book name</string>
-    <string name="btn_input_book_author">Author</string>
-    <string name="btn_input_book_producer">Producer</string>
+    <string name="edt_input_book_author">Author</string>
+    <string name="edt_input_book_producer">Producer</string>
     <string name="edt_input_book_price">Price</string>
     <string name="edt_input_book_quantity">Quantity</string>
-    <string name="btn_action_add">Save</string>
-    <string name="btn_action_cancel">Cancel</string>
-    <string name="btn_action_show">Show</string>
 
     <!--AddUserActivity-->
     <string name="title_activity_add_user">AddUserActivity</string>
 
+
     <!--AddCategoryActivity-->
-    <string name="title_activity_add_category">AddCategoryActivity</string>
+    <string name="title_activity_add_category">Add new Category</string>
+    <string name="edt_input_category_id">Book code</string>
+    <string name="edt_input_category_name">Book name</string>
+    <string name="edt_input_category_position">Author</string>
+    <string name="edt_input_category_description">Producer</string>
 
     <!--Sample-->
     <string name="sample">This is stat samples</string>
@@ -89,7 +91,9 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
 
-
-
+    <!--Common-->
+    <string name="btn_action_add">Save</string>
+    <string name="btn_action_reset">Reset</string>
+    <string name="btn_action_show">Show</string>
 
 </resources>

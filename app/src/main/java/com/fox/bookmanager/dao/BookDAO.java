@@ -5,27 +5,23 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.fox.bookmanager.Constants;
 import com.fox.bookmanager.database.DBHelper;
 import com.fox.bookmanager.model.Book;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.fox.bookmanager.Constants.BOOK_AUTHOR;
-import static com.fox.bookmanager.Constants.BOOK_ID;
-import static com.fox.bookmanager.Constants.BOOK_NAME;
-import static com.fox.bookmanager.Constants.BOOK_PRICE;
-import static com.fox.bookmanager.Constants.BOOK_PRODUCER;
-import static com.fox.bookmanager.Constants.BOOK_QUANTITY;
-import static com.fox.bookmanager.Constants.BOOK_TABLE;
-import static com.fox.bookmanager.Constants.BOOK_TYPE_ID;
-
-public class BookDAO {
+public class BookDAO extends Constants {
 
     private DBHelper dbHelper;
 
     public BookDAO(Context context) {
         this.dbHelper = new DBHelper(context);
+    }
+
+    public BookDAO(DBHelper dbHelper) {
+        this.dbHelper = dbHelper;
     }
 
     public List<Book> getAllBook(){
@@ -44,8 +40,8 @@ public class BookDAO {
                     String NAME_ = cursor.getString(cursor.getColumnIndex(BOOK_NAME));
                     String AUTHOR_ = cursor.getString(cursor.getColumnIndex(BOOK_AUTHOR));
                     String PRODUCER_ = cursor.getString(cursor.getColumnIndex(BOOK_PRODUCER));
-                    String PRICE_ = cursor.getString(cursor.getColumnIndex(BOOK_PRICE));
-                    String QUANTITY_ = cursor.getString(cursor.getColumnIndex(BOOK_QUANTITY));
+                    float PRICE_ = cursor.getFloat(cursor.getColumnIndex(BOOK_PRICE));
+                    int QUANTITY_ = cursor.getInt(cursor.getColumnIndex(BOOK_QUANTITY));
 
                     Book book = new Book(ID_,CAT_ID_,NAME_,AUTHOR_,PRODUCER_,PRICE_,QUANTITY_);
                     books.add(book);
@@ -59,6 +55,8 @@ public class BookDAO {
     }
 
     public long insertBook(Book book){
+        long result = -1;
+
         ContentValues cv = new ContentValues();
         cv.put(BOOK_ID,book.ID);
         cv.put(BOOK_TYPE_ID,book.CAT_ID);
@@ -69,13 +67,15 @@ public class BookDAO {
         cv.put(BOOK_QUANTITY,book.QUANTITY);
 
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
-        long result = sqLiteDatabase.insert(BOOK_TABLE,null,cv);
+        result = sqLiteDatabase.insert(BOOK_TABLE,null,cv);
 
         sqLiteDatabase.close();
         return result;
     }
 
     public long updateBook(Book book){
+        long result = -1;
+
         ContentValues cv = new ContentValues();
         cv.put(BOOK_ID,book.ID);
         cv.put(BOOK_TYPE_ID,book.CAT_ID);
@@ -86,7 +86,7 @@ public class BookDAO {
         cv.put(BOOK_QUANTITY,book.QUANTITY);
 
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
-        long result = sqLiteDatabase.update(BOOK_TABLE,cv,BOOK_ID + " = ?",new String[]{book.ID});
+        result = sqLiteDatabase.update(BOOK_TABLE,cv,BOOK_ID + " = ?",new String[]{book.ID});
 
         sqLiteDatabase.close();
         return result;
@@ -100,6 +100,32 @@ public class BookDAO {
         sqLiteDatabase.close();
 
         return result;
+    }
+
+    public Book getBookByID(String id){
+        Book book = null;
+
+        SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
+
+        Cursor cursor = sqLiteDatabase.query(BOOK_TABLE,new String[]{BOOK_ID,BOOK_TYPE_ID,BOOK_AUTHOR,BOOK_NAME,BOOK_PRICE,BOOK_PRODUCER,BOOK_QUANTITY},BOOK_ID + " =? ",new String[]{id},null,null,null);
+        if(cursor != null){
+            if(cursor.getCount() > 0){
+                cursor.moveToFirst();
+
+                String id_ = cursor.getString(cursor.getColumnIndex(BOOK_ID));
+                String type_id_ = cursor.getString(cursor.getColumnIndex(BOOK_TYPE_ID));
+                String author_ = cursor.getString(cursor.getColumnIndex(BOOK_AUTHOR));
+                String producer_ = cursor.getString(cursor.getColumnIndex(BOOK_PRODUCER));
+                String name_ = cursor.getString(cursor.getColumnIndex(BOOK_NAME));
+                float price_ = cursor.getFloat(cursor.getColumnIndex(BOOK_PRICE));
+                int quantity_ = cursor.getInt(cursor.getColumnIndex(BOOK_QUANTITY));
+
+                book = new Book(id_,type_id_,name_,author_,producer_,price_,quantity_);
+
+            }
+        }
+
+        return book;
     }
 
 }

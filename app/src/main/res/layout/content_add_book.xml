@@ -83,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text"
-                android:hint="@string/btn_input_book_author" />
+                android:hint="@string/edt_input_book_author" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -98,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text"
-                android:hint="@string/btn_input_book_producer" />
+                android:hint="@string/edt_input_book_producer" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -148,17 +148,17 @@
 
             <Button
                 android:textAllCaps="true"
-                android:id="@+id/btnCancel"
+                android:id="@+id/btnReset"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/btn_action_cancel" />
+                android:text="@string/btn_action_reset" />
 
         </LinearLayout>
 
         <Button
             android:textAllCaps="true"
-            android:id="@+id/benShow"
+            android:id="@+id/btnShow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/btn_action_show"

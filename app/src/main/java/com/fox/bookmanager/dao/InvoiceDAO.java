@@ -5,17 +5,14 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.fox.bookmanager.Constants;
 import com.fox.bookmanager.database.DBHelper;
 import com.fox.bookmanager.model.Invoice;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.fox.bookmanager.Constants.INVOICE_DATE;
-import static com.fox.bookmanager.Constants.INVOICE_ID;
-import static com.fox.bookmanager.Constants.INVOICE_TABLE;
-
-public class InvoiceDAO {
+public class InvoiceDAO extends Constants {
 
     private DBHelper dbHelper;
 

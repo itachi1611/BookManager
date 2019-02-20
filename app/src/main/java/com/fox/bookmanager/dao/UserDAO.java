@@ -5,19 +5,14 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.fox.bookmanager.Constants;
 import com.fox.bookmanager.database.DBHelper;
 import com.fox.bookmanager.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.fox.bookmanager.Constants.USER_FULL_NAME;
-import static com.fox.bookmanager.Constants.USER_PASSWORD;
-import static com.fox.bookmanager.Constants.USER_PHONE;
-import static com.fox.bookmanager.Constants.USER_TABLE;
-import static com.fox.bookmanager.Constants.USER_USER_NAME;
-
-public class UserDAO {
+public class UserDAO extends Constants {
 
     private DBHelper dbHelper;
 

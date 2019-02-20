@@ -5,19 +5,15 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.fox.bookmanager.Constants;
 import com.fox.bookmanager.database.DBHelper;
 import com.fox.bookmanager.model.Category;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.fox.bookmanager.Constants.CATEGORY_TABLE;
-import static com.fox.bookmanager.Constants.CAT_DESCRIPTION;
-import static com.fox.bookmanager.Constants.CAT_ID;
-import static com.fox.bookmanager.Constants.CAT_NAME;
-import static com.fox.bookmanager.Constants.CAT_POSITION;
 
-public class CategoryDAO {
+public class CategoryDAO extends Constants {
 
     private DBHelper dbHelper;
 
@@ -53,6 +49,7 @@ public class CategoryDAO {
     }
 
     public long insertCategory(Category category){
+        long result = -1;
         ContentValues cv = new ContentValues();
         cv.put(CAT_ID,category.ID);
         cv.put(CAT_NAME,category.NAME);
@@ -60,13 +57,14 @@ public class CategoryDAO {
         cv.put(CAT_POSITION,category.POSITION);
 
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
-        long result = sqLiteDatabase.insert(CATEGORY_TABLE,null,cv);
+        result = sqLiteDatabase.insert(CATEGORY_TABLE,null,cv);
 
         sqLiteDatabase.close();
         return result;
     }
 
     public long updateCategory(Category category){
+        long result = -1;
         ContentValues cv = new ContentValues();
         cv.put(CAT_ID,category.ID);
         cv.put(CAT_NAME,category.NAME);
@@ -74,7 +72,7 @@ public class CategoryDAO {
         cv.put(CAT_POSITION,category.POSITION);
 
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
-        long result = sqLiteDatabase.update(CATEGORY_TABLE,cv,CAT_ID + " = ?",new String[]{category.ID});
+        result = sqLiteDatabase.update(CATEGORY_TABLE,cv,CAT_ID + " = ?",new String[]{category.ID});
 
         sqLiteDatabase.close();
         return result;

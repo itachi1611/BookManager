@@ -14,6 +14,7 @@ import com.fox.bookmanager.dao.InvoiceDAO;
 import com.fox.bookmanager.model.Invoice;
 
 import java.util.Calendar;
+import java.util.Date;
 
 public class InvoiceActivity extends BaseActivity {
 
@@ -58,6 +59,7 @@ public class InvoiceActivity extends BaseActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Date date = new Date();
                 String i_id = edtName.getText().toString().trim();
                 if(i_id.matches("") || i_id.length() > 7){
                     edtName.setError(getString(R.string.notify_wrong_text));

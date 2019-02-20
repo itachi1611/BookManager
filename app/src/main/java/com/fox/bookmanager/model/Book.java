@@ -7,12 +7,12 @@ public class Book {
     public String NAME;
     public String AUTHOR;
     public String PRODUCER;
-    public String PRICE;
-    public String QUANTITY;
+    public float PRICE;
+    public int QUANTITY;
 
     public Book(){}
 
-    public Book(String ID, String CAT_ID, String NAME, String AUTHOR, String PRODUCER, String PRICE, String QUANTITY) {
+    public Book(String ID, String CAT_ID, String NAME, String AUTHOR, String PRODUCER, float PRICE, int QUANTITY) {
         this.ID = ID;
         this.CAT_ID = CAT_ID;
         this.NAME = NAME;

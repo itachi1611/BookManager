@@ -1,5 +1,7 @@
 package com.fox.bookmanager.model;
 
+import java.util.Date;
+
 public class Invoice {
 
     public String ID;
