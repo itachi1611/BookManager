@@ -1,8 +1,8 @@
 package com.fox.bookmanager.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,8 +10,14 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 
 import com.fox.bookmanager.R;
+import com.fox.bookmanager.adapter.CategorySpinnerAdapter;
 import com.fox.bookmanager.base.BaseActivity;
 import com.fox.bookmanager.dao.BookDAO;
+import com.fox.bookmanager.dao.CategoryDAO;
+import com.fox.bookmanager.model.Book;
+import com.fox.bookmanager.model.Category;
+
+import java.util.List;
 
 public class AddBookActivity extends BaseActivity implements View.OnClickListener {
 
@@ -36,9 +42,12 @@ public class AddBookActivity extends BaseActivity implements View.OnClickListene
         btnAdd.setOnClickListener(this);
         btnReset.setOnClickListener(this);
         btnShow.setOnClickListener(this);
+        List<Category> categories = new CategoryDAO(AddBookActivity.this).getAllCategory();
+        spCatId.setAdapter(new CategorySpinnerAdapter(AddBookActivity.this,categories));
     }
 
     private void initViews(){
+        bookDAO = new BookDAO(AddBookActivity.this);
         edtBookId = findViewById(R.id.edtBookId);
         edtBookName = findViewById(R.id.edtBookName);
         edtAuthor = findViewById(R.id.edtAuthor);
@@ -58,10 +67,9 @@ public class AddBookActivity extends BaseActivity implements View.OnClickListene
     @Override
     public void onClick(View v) {
         int id = v.getId();
-
         switch (id){
             case R.id.btnAdd:
-
+                checkBookData();
                 break;
             case R.id.btnReset:
                 resetData();
@@ -73,7 +81,24 @@ public class AddBookActivity extends BaseActivity implements View.OnClickListene
     }
 
     private void checkBookData(){
-
+        Book book = new Book();
+        book.ID = edtBookId.getText().toString().trim();
+        if(book.ID.matches("")){
+            edtBookId.setError("ID can not be empty!");
+            return;
+        }
+        book.CAT_ID = String.valueOf(spCatId.getSelectedItemId());
+        book.NAME = edtBookName.getText().toString().trim();
+        if(book.NAME.matches("")){
+            edtBookName.setError("Name can not be empty!");
+            return;
+        }
+        book.AUTHOR = edtAuthor.getText().toString().trim();
+        book.PRODUCER = edtProducer.getText().toString().trim();
+        book.PRICE = Float.parseFloat(edtPrice.getText().toString().trim());
+        book.QUANTITY = Integer.parseInt(edtQuantity.getText().toString().trim());
+        long result = bookDAO.insertBook(book);
+        Log.e("result",result + "");
         resetData();
     }
 

@@ -10,12 +10,9 @@ import android.widget.EditText;
 
 import com.fox.bookmanager.R;
 import com.fox.bookmanager.base.BaseActivity;
-import com.fox.bookmanager.dao.BookDAO;
 import com.fox.bookmanager.dao.CategoryDAO;
 import com.fox.bookmanager.model.Category;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class AddCategoryActivity extends BaseActivity implements View.OnClickListener{
 

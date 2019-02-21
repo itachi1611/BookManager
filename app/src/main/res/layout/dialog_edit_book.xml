@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -16,13 +17,13 @@
             android:layout_margin="8dp">
 
             <EditText
-                android:id="@+id/edtCategoryId"
+                android:id="@+id/edtBookId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text"
                 android:enabled="false"
-                android:hint="@string/edt_input_category_id" />
+                android:hint="@string/edt_input_book_id" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -34,13 +35,18 @@
             android:weightSum="5"
             android:layout_margin="8dp">
 
-            <EditText
-                android:id="@+id/edtCategoryName"
-                android:layout_width="match_parent"
+            <Spinner
+                android:id="@+id/spCatId"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3.5" />
+
+            <ImageButton
+                android:id="@+id/i_btnAdd"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="text"
-                android:hint="@string/edt_input_category_name" />
+                android:layout_weight="1.5"
+                app:srcCompat="@drawable/ic_action_add" />
 
         </LinearLayout>
 
@@ -50,12 +56,12 @@
             android:layout_margin="8dp">
 
             <EditText
-                android:id="@+id/edtCategoryPosition"
+                android:id="@+id/edtBookName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="text"
-                android:hint="@string/edt_input_category_position" />
+                android:inputType="textPersonName"
+                android:hint="@string/edt_input_book_name" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -65,12 +71,57 @@
             android:layout_margin="8dp">
 
             <EditText
-                android:id="@+id/edtCategoryDescription"
+                android:id="@+id/edtAuthor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text"
-                android:hint="@string/edt_input_category_description" />
+                android:hint="@string/edt_input_book_author" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
+
+            <EditText
+                android:id="@+id/edtProducer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="@string/edt_input_book_producer" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
+
+            <EditText
+                android:id="@+id/edtPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:hint="@string/edt_input_book_price" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
+
+            <EditText
+                android:id="@+id/edtQuantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="@string/edt_input_book_quantity" />
 
         </android.support.design.widget.TextInputLayout>
 

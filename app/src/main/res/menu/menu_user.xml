@@ -9,4 +9,16 @@
         android:title="@string/action_search"
         android:icon="@drawable/search"/>
 
+    <item
+        android:id="@+id/action_add_user"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="@string/action_add_user" />
+
+    <item
+        android:id="@+id/action_change_pass"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="@string/action_change_pass"/>
+
 </menu>
