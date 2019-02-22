@@ -30,18 +30,7 @@ public class AddCategoryActivity extends BaseActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_category);
         initViews();
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         btnAdd.setOnClickListener(this);
         btnReset.setOnClickListener(this);
         btnShow.setOnClickListener(this);
@@ -56,6 +45,9 @@ public class AddCategoryActivity extends BaseActivity implements View.OnClickLis
         btnReset = findViewById(R.id.btnReset);
         btnShow = findViewById(R.id.btnShow);
         categoryDAO = new CategoryDAO(AddCategoryActivity.this);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override

@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -132,7 +133,7 @@ public class BookActivity extends BaseActivity {
         Button btnCancel = dialogView.findViewById(R.id.btnCancel);
 
         List<Category> categories = new CategoryDAO(BookActivity.this).getAllCategory();
-        spCatId.setAdapter((SpinnerAdapter) new CategorySpinnerAdapter(BookActivity.this,categories).getItem(pos));
+        spCatId.setAdapter(new CategorySpinnerAdapter(BookActivity.this,categories));
         edtBookId.setText(books.get(pos).ID);
         edtBookName.setText(books.get(pos).NAME);
         edtAuthor.setText(books.get(pos).AUTHOR);

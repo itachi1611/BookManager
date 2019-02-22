@@ -96,7 +96,15 @@ public class AddBookActivity extends BaseActivity implements View.OnClickListene
         book.AUTHOR = edtAuthor.getText().toString().trim();
         book.PRODUCER = edtProducer.getText().toString().trim();
         book.PRICE = Float.parseFloat(edtPrice.getText().toString().trim());
+        if(edtPrice.getText().toString().trim().matches("")){
+            edtPrice.setError("Price can not be empty!");
+            return;
+        }
         book.QUANTITY = Integer.parseInt(edtQuantity.getText().toString().trim());
+        if(edtQuantity.getText().toString().trim().matches("")){
+            edtQuantity.setError("Quantity can not be empty!");
+            return;
+        }
         long result = bookDAO.insertBook(book);
         Log.e("result",result + "");
         resetData();

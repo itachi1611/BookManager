@@ -101,6 +101,11 @@
     <string name="btn_action_show">Show</string>
     <string name="btn_action_save">Save</string>
     <string name="btn_action_cancel">Cancel</string>
+    <string name="edt_input_user_uname">Username</string>
+    <string name="edt_input_user_password">Password</string>
+    <string name="edt_input_user_re_password">Repassword</string>
+    <string name="edt_input_user_phone">Phone</string>
+    <string name="edt_input_user_full_name">Full name</string>
 
 
 </resources>

@@ -1,14 +1,21 @@
 package com.fox.bookmanager.activity;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
@@ -32,31 +39,13 @@ public class UserActivity extends BaseActivity {
     private LinearLayoutManager linearLayoutManager;
     private List<User> users;
 
-    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         initViews();
-
-        User user = new User("admin","admin","123","admin");
-        long a = userDAO.insertUser(user);
-        Log.i("a",a + "");
-
         addRecycleView();
-
-
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startNewActivity(AddUserActivity.class);
-                finish();
-            }
-        });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void initViews(){
@@ -65,7 +54,9 @@ public class UserActivity extends BaseActivity {
         userDAO = new UserDAO(UserActivity.this);
         lvList = findViewById(R.id.lvList);
         linearLayoutManager = new LinearLayoutManager(this);
-        fab = findViewById(R.id.fab);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void addRecycleView(){
@@ -78,24 +69,84 @@ public class UserActivity extends BaseActivity {
 
         lvList.addOnItemTouchListener(new RecyclerViewTouchListener(getApplicationContext(), lvList, new RecyclerViewClickListener() {
             @Override
-            public void onClick(View view, int pos) {
-                Toast.makeText(getApplicationContext(), users.get(pos).USER_USER_NAME + " id clicked!", Toast.LENGTH_SHORT).show();
-            }
+            public void onClick(View view, int pos) {}
 
             @Override
-            public void onLongClick(View view, int pos) {
-                PopupMenu popup = new PopupMenu(getApplicationContext(),view);
+            public void onLongClick(View view, final int pos) {
+                final PopupMenu popup = new PopupMenu(getApplicationContext(),view);
                 popup.getMenuInflater().inflate(R.menu.popup_menu,popup.getMenu());
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
-                        Toast.makeText(UserActivity.this, "You clicked : " + item.getTitle(), Toast.LENGTH_SHORT).show();
+                        int id = item.getItemId();
+                        switch (id){
+                            case R.id.menu_edit:
+                                popup.dismiss();
+                                onEditUser(pos);
+                                break;
+                            case R.id.menu_delete:
+                                popup.dismiss();
+                                onDeleteUser(pos);
+                                break;
+                        }
                         return true;
                     }
                 });
                 popup.show();
             }
         }));
+    }
+
+    private void onEditUser(int pos){
+        final AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogView = inflater.inflate(R.layout.dialog_edit_user, null);
+        dialog.setView(dialogView);
+        final Dialog dialog_edit_user = dialog.show();
+
+        EditText edtUsername = dialogView.findViewById(R.id.edtUsername);
+        EditText edtPhone = dialogView.findViewById(R.id.edtPhone);
+        EditText edtFullName = dialogView.findViewById(R.id.edtFullName);
+        Button btnSave = dialogView.findViewById(R.id.btnSave);
+        Button btnCancel = dialogView.findViewById(R.id.btnCancel);
+
+        edtUsername.setText(users.get(pos).USER_USER_NAME);
+        edtPhone.setText(users.get(pos).USER_PHONE);
+        edtFullName.setText(users.get(pos).USER_FULL_NAME);
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+    }
+
+    private void onDeleteUser(final int pos){
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setMessage("Are you sure to delete this user ?");
+        dialog.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                userDAO.deleteUser(users.get(pos).USER_USER_NAME);
+                addRecycleView();
+            }
+        });
+        dialog.setPositiveButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
     }
 
     @Override
@@ -111,13 +162,22 @@ public class UserActivity extends BaseActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_search) {
-            return true;
+        switch (id){
+            case R.id.action_add_user:
+                startNewActivity(AddUserActivity.class);
+                finish();
+                break;
+            case R.id.action_change_pass:
+                onChangePassword();
+                break;
+            case R.id.action_search:
+                break;
         }
-
         return super.onOptionsItemSelected(item);
+    }
+
+    private void onChangePassword(){
+
     }
 
 
