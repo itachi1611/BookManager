@@ -75,19 +75,19 @@ public class AddBookActivity extends BaseActivity implements View.OnClickListene
                 resetData();
                 break;
             case R.id.btnShow:
-                finish();
+                startNewActivity(BookActivity.class);
                 break;
         }
     }
 
     private void checkBookData(){
-        Book book = new Book();
+        final Book book = new Book();
         book.ID = edtBookId.getText().toString().trim();
         if(book.ID.matches("")){
             edtBookId.setError("ID can not be empty!");
             return;
         }
-        book.CAT_ID = String.valueOf(spCatId.getSelectedItemId());
+        book.CAT_ID = ((Category)spCatId.getSelectedItem()).ID;
         book.NAME = edtBookName.getText().toString().trim();
         if(book.NAME.matches("")){
             edtBookName.setError("Name can not be empty!");

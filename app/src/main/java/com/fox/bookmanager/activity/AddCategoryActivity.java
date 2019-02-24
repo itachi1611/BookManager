@@ -61,7 +61,7 @@ public class AddCategoryActivity extends BaseActivity implements View.OnClickLis
                 resetData();
                 break;
             case R.id.btnShow:
-                finish();
+                startNewActivity(CategoryActivity.class);
                 break;
         }
     }

@@ -9,6 +9,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -134,6 +135,12 @@ public class BookActivity extends BaseActivity {
 
         List<Category> categories = new CategoryDAO(BookActivity.this).getAllCategory();
         spCatId.setAdapter(new CategorySpinnerAdapter(BookActivity.this,categories));
+        String cat_id = books.get(pos).CAT_ID;
+        for (int i = 0; i < categories.size(); i++) {
+            if (cat_id.equals(categories.get(i).ID)) {
+                spCatId.setSelection(i);
+            }
+        }
         edtBookId.setText(books.get(pos).ID);
         edtBookName.setText(books.get(pos).NAME);
         edtAuthor.setText(books.get(pos).AUTHOR);
@@ -150,7 +157,7 @@ public class BookActivity extends BaseActivity {
                 String producer = edtProducer.getText().toString().trim();
                 float price = Float.parseFloat(edtPrice.getText().toString().trim());
                 int quantity = Integer.parseInt(edtQuantity.getText().toString().trim());
-                String cat_id = String.valueOf(spCatId.getSelectedItemId());
+                String cat_id = ((Category)spCatId.getSelectedItem()).ID;
                 Book book = new Book(id,cat_id,name,author,producer,price,quantity);
                 bookDAO.updateBook(book);
                 dialog_edit_book.dismiss();

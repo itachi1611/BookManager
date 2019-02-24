@@ -100,18 +100,19 @@ public class MenuActivity extends BaseActivity implements View.OnClickListener,N
         // Handle navigation view item clicks here.
         int id = menuItem.getItemId();
 
-        if (id == R.id.nav_home) {
+        if(id == R.id.nav_home){
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_tools) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        }else if(id == R.id.nav_about){
+            startNewActivity(AboutActivity.class);
+        }else if(id == R.id.nav_setting){
+            startNewActivity(SettingActivity.class);
+        }else if(id == R.id.nav_help){
+            startNewActivity(HelpActivity.class);
+        }else if(id == R.id.nav_feedback){
+            startNewActivity(FeedbackActivity.class);
+        }else if(id == R.id.nav_logout){
+            startNewActivity(LoginActivity.class);
+            finish();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

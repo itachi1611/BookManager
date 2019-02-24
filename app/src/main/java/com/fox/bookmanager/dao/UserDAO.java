@@ -20,6 +20,10 @@ public class UserDAO extends Constants {
         this.dbHelper = new DBHelper(context);
     }
 
+    public UserDAO(DBHelper dbHelper) {
+        this.dbHelper = dbHelper;
+    }
+
     public long insertUser(User user){
 
         long result = -1;
@@ -91,18 +95,46 @@ public class UserDAO extends Constants {
 
                     users.add(user);
                     cursor.moveToNext();
-
                 }
-
                 cursor.close();
                 sqLiteDatabase.close();
-
             }
-
         }
-
         return users;
+    }
 
+    public User getUser(String username) {
+
+        User user = null;
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.query(USER_TABLE, new String[]{USER_USER_NAME, USER_PASSWORD, USER_PHONE, USER_FULL_NAME}, USER_USER_NAME + " = ? ", new String[]{username}, null, null, null, null);
+
+        // moveToFirst : kiem tra xem cursor co chua du lieu khong, ham nay tra ve gia tri la true or false
+        if (cursor != null && cursor.moveToFirst()) {
+
+            String user_name = cursor.getString(cursor.getColumnIndex(USER_USER_NAME));
+
+            String password = cursor.getString(cursor.getColumnIndex(USER_PASSWORD));
+
+            String name = cursor.getString(cursor.getColumnIndex(USER_PHONE));
+
+            String phoneNumber = cursor.getString(cursor.getColumnIndex(USER_FULL_NAME));
+
+            // khoi tao user voi cac gia tri lay duoc
+            user = new User(user_name, password, name, phoneNumber);
+        }
+        cursor.close();
+        return user;
+    }
+
+    public int getPosition(String username){
+        int pos = 0;
+        for(int i = 0;i < new UserDAO(dbHelper).getAllUser().size();i++){
+            if(new UserDAO(dbHelper).getAllUser().get(i).USER_USER_NAME.equals(username)){
+                pos = i;
+            }
+        }
+        return pos;
     }
 
 }

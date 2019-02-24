@@ -35,6 +35,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
     public void onBindViewHolder(@NonNull UserHolder userHolder, int i) {
         userHolder.user = users.get(i);
         userHolder.tvName.setText(userHolder.user.USER_FULL_NAME);
+        userHolder.tvPhone.setText(userHolder.user.USER_PHONE);
     }
 
     @Override
@@ -45,13 +46,13 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
     class UserHolder extends RecyclerView.ViewHolder{
 
         private TextView tvName;
-        private Button btnDel;
+        private TextView tvPhone;
         User user;
 
         public UserHolder(@NonNull View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tvName);
-            btnDel = itemView.findViewById(R.id.btnDel);
+            tvPhone = itemView.findViewById(R.id.tvPhone);
         }
     }
 

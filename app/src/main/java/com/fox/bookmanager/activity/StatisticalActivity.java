@@ -27,13 +27,11 @@ public class StatisticalActivity extends BaseActivity {
 
         addTabLayoutControl();
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
     }
 
     private void initViews(){
-        tbLayout = (TabLayout) findViewById(R.id.tbLayout);
-        viewPager = (ViewPager) findViewById(R.id.viewPager);
+        tbLayout = findViewById(R.id.tbLayout);
+        viewPager = findViewById(R.id.viewPager);
     }
 
     private void addTabLayoutControl(){

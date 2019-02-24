@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
@@ -38,14 +39,16 @@ public class UserActivity extends BaseActivity {
     private UserAdapter userAdapter;
     private LinearLayoutManager linearLayoutManager;
     private List<User> users;
-
+    private SharedPreferences sharedPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
         initViews();
+        //userDAO.insertUser(new User("admin","admin123","0934203620","admin"));
         addRecycleView();
+
     }
 
     private void initViews(){
@@ -54,6 +57,7 @@ public class UserActivity extends BaseActivity {
         userDAO = new UserDAO(UserActivity.this);
         lvList = findViewById(R.id.lvList);
         linearLayoutManager = new LinearLayoutManager(this);
+        sharedPref = this.getPreferences(Context.MODE_PRIVATE);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -104,27 +108,33 @@ public class UserActivity extends BaseActivity {
         dialog.setView(dialogView);
         final Dialog dialog_edit_user = dialog.show();
 
-        EditText edtUsername = dialogView.findViewById(R.id.edtUsername);
-        EditText edtPhone = dialogView.findViewById(R.id.edtPhone);
-        EditText edtFullName = dialogView.findViewById(R.id.edtFullName);
+        final EditText edtUsername = dialogView.findViewById(R.id.edtUsername);
+        final EditText edtPhone = dialogView.findViewById(R.id.edtPhone);
+        final EditText edtFullName = dialogView.findViewById(R.id.edtFullName);
         Button btnSave = dialogView.findViewById(R.id.btnSave);
         Button btnCancel = dialogView.findViewById(R.id.btnCancel);
 
         edtUsername.setText(users.get(pos).USER_USER_NAME);
         edtPhone.setText(users.get(pos).USER_PHONE);
         edtFullName.setText(users.get(pos).USER_FULL_NAME);
+        final String current_pass = users.get(pos).USER_PASSWORD;
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                String username = edtUsername.getText().toString().trim();
+                String phone = edtPhone.getText().toString().trim();
+                String full_name = edtFullName.getText().toString().trim();
+                userDAO.updateUser(new User(username,current_pass,phone,full_name));
+                dialog_edit_user.dismiss();
+                addRecycleView();
             }
         });
 
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                dialog_edit_user.dismiss();
             }
         });
 
@@ -168,7 +178,10 @@ public class UserActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.action_change_pass:
-                onChangePassword();
+                SharedPreferences sharedPreferences = getSharedPreferences("USER_POSITION",MODE_PRIVATE);
+                int pos = sharedPreferences.getInt("POSITION", 0);
+                Log.e("e",pos + "");
+                onChangePassword(pos);
                 break;
             case R.id.action_search:
                 break;
@@ -176,7 +189,57 @@ public class UserActivity extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void onChangePassword(){
+    private void onChangePassword(int pos){
+        final AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogView = inflater.inflate(R.layout.dialog_change_password, null);
+        dialog.setView(dialogView);
+        final Dialog dialog_change_password = dialog.show();
+
+        final EditText edtCurrentPass = dialogView.findViewById(R.id.edtCurrentPass);
+        final EditText edtNewPass = dialogView.findViewById(R.id.edtNewPass);
+        final EditText edtReNewPass = dialogView.findViewById(R.id.edtReNewPass);
+        Button btnSave = dialogView.findViewById(R.id.btnSave);
+        Button btnCancel = dialogView.findViewById(R.id.btnCancel);
+
+        edtCurrentPass.setText(users.get(pos).USER_PASSWORD);
+        final String username = users.get(pos).USER_USER_NAME;
+        final String phone = users.get(pos).USER_PHONE;
+        final String full_name = users.get(pos).USER_FULL_NAME;
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String new_pass = edtNewPass.getText().toString().trim();
+                if(new_pass.matches("") || new_pass.length() < 5){
+                    if(new_pass.length() < 5){
+                        edtNewPass.setError(getString(R.string.notify_length_pass));
+                        return;
+                    }
+
+                    if(new_pass.matches("")){
+                        edtNewPass.setError(getString(R.string.notify_empty_pass));
+                        return;
+                    }
+                }
+                String re_new_pass = edtReNewPass.getText().toString().trim();
+                if(!re_new_pass.equals(new_pass)){
+                    edtReNewPass.setError("Password not match!");
+                    return;
+                }
+                User user = new User(username,new_pass,phone,full_name);
+                userDAO.updateUser(user);
+                dialog_change_password.dismiss();
+                addRecycleView();
+            }
+        });
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog_change_password.dismiss();
+            }
+        });
 
     }
 

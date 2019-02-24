@@ -10,6 +10,42 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".activity.FeedbackActivity"
+            android:label="@string/title_activity_feedback"
+            android:parentActivityName=".activity.MenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fox.bookmanager.activity.MenuActivity" />
+        </activity>
+        <activity
+            android:name=".activity.HelpActivity"
+            android:label="@string/title_activity_help"
+            android:parentActivityName=".activity.MenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fox.bookmanager.activity.MenuActivity" />
+        </activity>
+        <activity
+            android:name=".activity.SettingActivity"
+            android:label="@string/title_activity_setting"
+            android:parentActivityName=".activity.MenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fox.bookmanager.activity.MenuActivity" />
+        </activity>
+        <activity
+            android:name=".activity.AboutActivity"
+            android:label="@string/title_activity_about"
+            android:parentActivityName=".activity.MenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fox.bookmanager.activity.MenuActivity" />
+        </activity>
+        <activity
             android:name=".activity.AddCategoryActivity"
             android:label="@string/title_activity_add_category"
             android:parentActivityName=".activity.CategoryActivity"
@@ -93,10 +129,7 @@
         <activity
             android:name=".activity.MenuActivity"
             android:label="@string/title_activity_menu"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity
-            android:name=".activity.RegisterActivity"
-            android:label="@string/title_activity_register" />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.LoginActivity"
             android:label="@string/title_activity_login" />

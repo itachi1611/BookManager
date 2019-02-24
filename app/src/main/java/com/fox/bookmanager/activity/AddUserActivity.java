@@ -63,7 +63,7 @@ public class AddUserActivity extends BaseActivity implements View.OnClickListene
                 resetData();
                 break;
             case R.id.btnShow:
-                finish();
+                startNewActivity(UserActivity.class);
                 break;
         }
     }
