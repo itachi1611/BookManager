@@ -135,11 +135,11 @@ public class BookDAO extends Constants {
         if(Integer.parseInt(m) < 10){
             m = "0" + m;
         }
-        String QUERY = "SELECT book_id,SUM(invoice_detail.quantity) AS TOTAL,b_name FROM invoice_detail "+
+        String QUERY = "SELECT b_id,SUM(invoice_detail.quantity) AS 'TOTAL',b_name FROM invoice_detail "+
                 "" + " INNER JOIN invoice ON invoice_detail.invoice_id = invoice.i_id" +
                 "" + " INNER JOIN book ON invoice_detail.book_id = book.b_id" +
-                "" + " WHERE strftime('%m','i_date') = '" + m + "'" +
-                "" + " GROUP BY book_id ORDER BY invoice_detail.quantity DESC LIMIT 10";
+//                "" + " WHERE strftime('%m',invoice.i_date) = '" + m + "'" +
+                "" + " GROUP BY b_id ORDER BY invoice_detail.quantity DESC LIMIT 10";
 
         Log.e("QUERY",QUERY);
 

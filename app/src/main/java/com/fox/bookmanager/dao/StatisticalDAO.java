@@ -56,9 +56,17 @@ public class StatisticalDAO extends Constants {
     public double getStatisticalByDay(){
         double result = 0;
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
-        String QUERY = "SELECT SUM(invoice_detail.quantity) FROM (SELECT SUM(book.price * invoice_detail.quantity) AS 'TOTAL' " +
+        String QUERY = "SELECT SUM(TOTAL) FROM (SELECT SUM(book.price * invoice_detail.quantity) AS 'TOTAL' " +
                 "" + "FROM invoice INNER JOIN invoice_detail ON invoice.i_id = invoice_detail.invoice_id " +
                 "" + "INNER JOIN book ON invoice_detail.book_id = book.b_id WHERE invoice.i_date = date('now') GROUP BY invoice_detail.book_id)tmp";
+//        String QUERY_DAY = "SELECT SUM(tongtien) FROM (" +
+//                "" + "SELECT SUM(book.price * invoice_detail.quantity) as 'tongtien'" +
+//                "" + " FROM " + INVOICE_TABLE +
+//                "" + " INNER JOIN " + BOOK_TABLE + " ON " + " book.b_id = invoice_detail.book_id " +
+//                "" + " INNER JOIN " + INVOICE_DETAIL_TABLE + " ON " + " invoice.i_id = invoice_detail.invoice_id " +
+//                "" + " WHERE  strftime(\"%Y-%m-%d\", invoice.i_date / 1000 , 'unixepoch') = strftime(\"%Y-%m-%d\",'now') " +
+//                "" + " GROUP BY invoice_detail.book_id" +
+//                ")";
         Cursor cursor = sqLiteDatabase.rawQuery(QUERY,null);
         if(cursor != null){
             if(cursor.getCount() > 0){
@@ -70,6 +78,7 @@ public class StatisticalDAO extends Constants {
                 cursor.close();
             }
         }
+        Log.e("result",result + "");
         return result;
     }
 
@@ -78,7 +87,7 @@ public class StatisticalDAO extends Constants {
         double result = 0;
 
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
-        String QUERY = "SELECT SUM(invoice_detail.quantity) FROM (SELECT SUM(book.price * invoice_detail.quantity) AS 'TOTAL' " +
+        String QUERY = "SELECT SUM(TOTAL) FROM (SELECT SUM(book.price * invoice_detail.quantity) AS 'TOTAL' " +
                 "" + "FROM invoice INNER JOIN invoice_detail ON invoice.i_id = invoice_detail.invoice_id " +
                 "" + "INNER JOIN book ON invoice_detail.book_id = book.b_id WHERE strftime('%m',invoice.i_date) = strftime('%m','now') GROUP BY invoice_detail.book_id)tmp";
         Cursor cursor = sqLiteDatabase.rawQuery(QUERY,null);
@@ -92,6 +101,7 @@ public class StatisticalDAO extends Constants {
                 cursor.close();
             }
         }
+        Log.e("result",result + "");
         return result;
     }
 
@@ -100,9 +110,9 @@ public class StatisticalDAO extends Constants {
         double result = 0;
 
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
-        String QUERY = "SELECT SUM(invoice_detail.quantity) FROM (SELECT SUM(book.price * invoice_detail.quantity) AS 'TOTAL' " +
+        String QUERY = "SELECT SUM(TOTAL) FROM (SELECT SUM(book.price * invoice_detail.quantity) AS 'TOTAL' " +
                 "" + "FROM invoice INNER JOIN invoice_detail ON invoice.i_id = invoice_detail.invoice_id " +
-                "" + "INNER JOIN book ON invoice_detail.book_id = book.b_id WHERE strftime('%Y',invoice.i_date) = strftime('%Y','now') GROUP BY invoice_detail.book_id)tmp";
+                "" + "INNER JOIN book ON invoice_detail.book_id = book.b_id WHERE strftime('%Y',i_date) = strftime('%Y','now') GROUP BY invoice_detail.book_id)tmp";
         Cursor cursor = sqLiteDatabase.rawQuery(QUERY,null);
         if(cursor != null){
             if(cursor.getCount() > 0){
@@ -114,6 +124,7 @@ public class StatisticalDAO extends Constants {
                 cursor.close();
             }
         }
+        Log.e("result",result + "");
         return result;
     }
 

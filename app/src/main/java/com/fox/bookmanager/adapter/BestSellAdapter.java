@@ -37,7 +37,7 @@ public class BestSellAdapter extends RecyclerView.Adapter<BestSellAdapter.ViewHo
         viewHolder.book = books.get(i);
         viewHolder.tvBookName.setText(viewHolder.book.NAME);
         viewHolder.tvId.setText(viewHolder.book.ID);
-        viewHolder.tvQuantity.setText(viewHolder.book.QUANTITY);
+        viewHolder.tvQuantity.setText(Integer.toString(viewHolder.book.QUANTITY));
     }
 
     @Override
