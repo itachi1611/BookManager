@@ -22,6 +22,12 @@
             android:layout_height="wrap_content">
         </Spinner>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnShow"
+            android:text="@string/btn_action_show"/>
+
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView

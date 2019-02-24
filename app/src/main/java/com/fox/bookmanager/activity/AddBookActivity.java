@@ -105,8 +105,7 @@ public class AddBookActivity extends BaseActivity implements View.OnClickListene
             edtQuantity.setError("Quantity can not be empty!");
             return;
         }
-        long result = bookDAO.insertBook(book);
-        Log.e("result",result + "");
+        bookDAO.insertBook(book);
         resetData();
     }
 

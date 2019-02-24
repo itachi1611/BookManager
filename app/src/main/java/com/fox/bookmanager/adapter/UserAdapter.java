@@ -6,7 +6,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.fox.bookmanager.R;
@@ -27,7 +26,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
     @NonNull
     @Override
     public UserHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(context).inflate(R.layout.user_item,viewGroup,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_user,viewGroup,false);
         return new UserHolder(view);
     }
 

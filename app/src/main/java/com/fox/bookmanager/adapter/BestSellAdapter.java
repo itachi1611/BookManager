@@ -16,9 +16,11 @@ import java.util.List;
 
 public class BestSellAdapter extends RecyclerView.Adapter<BestSellAdapter.ViewHolder> {
 
-    private List<Book> books;
+    public Context context;
+    public List<Book> books;
 
-    public BestSellAdapter(List<Book> books) {
+    public BestSellAdapter(Context context, List<Book> books) {
+        this.context = context;
         this.books = books;
     }
 
@@ -32,7 +34,10 @@ public class BestSellAdapter extends RecyclerView.Adapter<BestSellAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull BestSellAdapter.ViewHolder viewHolder, int i) {
-        Book book = books.get(i);
+        viewHolder.book = books.get(i);
+        viewHolder.tvBookName.setText(viewHolder.book.NAME);
+        viewHolder.tvId.setText(viewHolder.book.ID);
+        viewHolder.tvQuantity.setText(viewHolder.book.QUANTITY);
     }
 
     @Override
@@ -45,6 +50,7 @@ public class BestSellAdapter extends RecyclerView.Adapter<BestSellAdapter.ViewHo
         public ImageView imgBook;
         public TextView tvBookName;
         public TextView tvQuantity,tvId;
+        Book book;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

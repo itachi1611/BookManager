@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".activity.InvoiceDetailActivity"
+            android:label="@string/title_activity_invoice_detail"
+            android:parentActivityName=".activity.InvoiceActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fox.bookmanager.activity.InvoiceActivity" />
+        </activity>
+        <activity
             android:name=".activity.FeedbackActivity"
             android:label="@string/title_activity_feedback"
             android:parentActivityName=".activity.MenuActivity"

@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.fox.bookmanager.Constants;
 import com.fox.bookmanager.database.DBHelper;
@@ -126,6 +127,42 @@ public class BookDAO extends Constants {
         }
 
         return book;
+    }
+
+    public List<Book> getTopTenBook(String m){
+        List<Book> books = new ArrayList<>();
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+        if(Integer.parseInt(m) < 10){
+            m = "0" + m;
+        }
+        String QUERY = "SELECT book_id,SUM(invoice_detail.quantity) AS TOTAL,b_name FROM invoice_detail "+
+                "" + " INNER JOIN invoice ON invoice_detail.invoice_id = invoice.i_id" +
+                "" + " INNER JOIN book ON invoice_detail.book_id = book.b_id" +
+                "" + " WHERE strftime('%m','i_date') = '" + m + "'" +
+                "" + " GROUP BY book_id ORDER BY invoice_detail.quantity DESC LIMIT 10";
+
+        Log.e("QUERY",QUERY);
+
+        Cursor cursor = database.rawQuery(QUERY,null);
+        if(cursor != null){
+            if(cursor.getCount() > 0){
+                cursor.moveToFirst();
+                while(!cursor.isAfterLast()){
+                    Book book = new Book();
+                    book.ID = cursor.getString(0);
+                    book.QUANTITY = cursor.getInt(1);
+                    book.PRICE = 0;
+                    book.CAT_ID = "";
+                    book.NAME = cursor.getString(2);
+                    book.AUTHOR = "";
+                    book.PRODUCER = "";
+                    books.add(book);
+                    cursor.moveToNext();
+                }
+                cursor.close();
+            }
+        }
+        return books;
     }
 
 }

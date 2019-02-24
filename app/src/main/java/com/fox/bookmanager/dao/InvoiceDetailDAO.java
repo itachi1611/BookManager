@@ -67,7 +67,7 @@ public class InvoiceDetailDAO extends Constants {
 
         List<InvoiceDetail> invoiceDetails = new ArrayList<>();
 
-        String QUERY = "SELECT * FROM " + INVOICE_DETAIL_TABLE + " WHERE " + INVOICE_DETAIL_ID + " = '" + id + "'";
+        String QUERY = "SELECT * FROM " + INVOICE_DETAIL_TABLE + " WHERE " + INVOICE_DETAIL_INVOICE_ID + " = '" + id + "'";
         //Ask permission to read and write
         SQLiteDatabase  sqLiteDatabase = dbHelper.getWritableDatabase();
         Cursor cursor = sqLiteDatabase.rawQuery(QUERY,null);

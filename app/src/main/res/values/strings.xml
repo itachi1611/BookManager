@@ -49,6 +49,13 @@
     <!--StatisticalActivity-->
     <string name="title_activity_statistical">Statistical</string>
 
+    <!--InvoiceDetailActivity-->
+    <string name="title_activity_invoice_detail">Invoice Detail</string>
+    <string name="invoice_detail_book_id">Book id</string>
+    <string name="invoice_detail_sum">Cost</string>
+    <string name="invoice_detail_book_price">Price</string>
+    <string name="invoice_detail_quantity">Quantity</string>
+
     <!--AddBookActivity-->
     <string name="title_activity_add_book">Add new Book</string>
     <string name="edt_input_book_id">Book code</string>
@@ -93,17 +100,17 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
+    <string name="btn_action_cancel">Cancel</string>
+    <string name="title_activity_about">AboutActivity</string>
+    <string name="title_activity_setting">SettingActivity</string>
+    <string name="title_activity_help">HelpActivity</string>
+    <string name="title_activity_feedback">FeedbackActivity</string>
 
     <!--Common-->
     <string name="btn_action_add">Save</string>
     <string name="btn_action_reset">Reset</string>
     <string name="btn_action_show">Show</string>
     <string name="btn_action_save">Save</string>
-    <string name="btn_action_cancel">Cancel</string>
-    <string name="title_activity_about">AboutActivity</string>
-    <string name="title_activity_setting">SettingActivity</string>
-    <string name="title_activity_help">HelpActivity</string>
-    <string name="title_activity_feedback">FeedbackActivity</string>
 
 
 </resources>
